@@ -9,6 +9,10 @@ st.set_page_config(
     initial_sidebar_state="collapsed",
 )
 
+# ============================================================
+# APPLICATION SETTINGS
+# ============================================================
+
 APPS = [
     {
         "title": "Dot Blot 最適化ツール",
@@ -55,14 +59,28 @@ APPS = [
 # 完成したPortable ZIPをGitHub Releases等に置いた後、
 # 実際のダウンロードURLへ変更してください。
 PORTABLE_DOWNLOAD_URL = "https://YOUR-DOWNLOAD-LINK-HERE"
-VERSION_TEXT = "Research Desktop v1.3"
+
+VERSION_TEXT = "Research Desktop v1.5"
+
+# ============================================================
+# LOAD CSS
+# ============================================================
 
 css_path = Path(__file__).with_name("style.css")
+
+if not css_path.exists():
+    st.error("style.css が見つかりません。app.py と同じGitHubフォルダに置いてください。")
+    st.stop()
+
 css = css_path.read_text(encoding="utf-8")
-st.markdown("<style>" + css + "</style>", unsafe_allow_html=True)
+st.html("<style>" + css + "</style>")
+
+# ============================================================
+# STARTUP BUBBLES
+# ============================================================
 
 bubble_html = (
-    '<div class="bubble-stage">'
+    '<div class="bubble-stage" aria-hidden="true">'
     '<div class="bubble b1"></div>'
     '<div class="bubble b2"></div>'
     '<div class="bubble b3"></div>'
@@ -73,24 +91,6 @@ bubble_html = (
     '<div class="bubble b8"></div>'
     '</div>'
 )
-st.markdown(bubble_html, unsafe_allow_html=True)
+st.html(bubble_html)
 
-hero_html = (
-    '<div class="aero-hero">'
-    '<div class="hero-kicker">RESEARCH SOFTWARE DESKTOP</div>'
-    '<h1>Research App Launcher</h1>'
-    '<p>研究・解析・ゲーム用に作成したアプリを、'
-    'ひとつのデスクトップから起動するためのポータルです。'
-    'Webアプリ4種と、Windows用 Nuclear Volume Analyzer をまとめています。</p>'
-    '</div>'
-    '<div class="section-label">Applications</div>'
-)
-st.markdown(hero_html, unsafe_allow_html=True)
-
-cards = []
-
-for app_item in APPS:
-    title = html.escape(app_item["title"])
-    subtitle = html.escape(app_item["subtitle"])
-    desc = html.escape(app_item["description"])
-    url = html.escape(app_item["url"], quote=True)
+# ============================================================

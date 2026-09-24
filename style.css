@@ -1,96 +1,96 @@
+
+/* ============================================================
+   STREAMLIT BASE
+   ============================================================ */
+
 html{
-  scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 [data-testid="stAppViewContainer"]{
-  background:
-    radial-gradient(circle at 8% 17%,rgba(255,255,255,.74) 0 4%,transparent 4.2%),
-    radial-gradient(circle at 80% 11%,rgba(255,255,255,.63) 0 5%,transparent 5.2%),
-    linear-gradient(180deg,#8fdcff 0%,#d9f7ff 37%,#73dad2 67%,#5cbb86 100%);
-  background-attachment:fixed;
+    position:relative;
+    overflow-x:hidden;
+    background:
+        radial-gradient(circle at 8% 14%,rgba(255,255,255,.72) 0 4%,transparent 4.2%),
+        radial-gradient(circle at 82% 10%,rgba(255,255,255,.62) 0 5%,transparent 5.2%),
+        linear-gradient(180deg,#8fdcff 0%,#dff8ff 35%,#7ddfd6 66%,#61bc87 100%);
+    background-attachment:fixed;
 }
 
 [data-testid="stHeader"]{
-  background:rgba(0,0,0,0);
+    background:rgba(255,255,255,.08);
 }
 
 #MainMenu,
 footer{
-  visibility:hidden;
+    visibility:hidden;
 }
 
 .block-container{
-  max-width:1200px;
-  padding-top:1.8rem;
-  padding-bottom:7rem;
+    max-width:1180px;
+    padding-top:2.1rem;
+    padding-bottom:5rem;
 }
 
-/* ------------------------------------------------------------
-   STARTUP BUBBLES
------------------------------------------------------------- */
+/* ============================================================
+   STARTUP BUBBLES - CSS ONLY
+   No custom HTML needed
+   ============================================================ */
 
-.bubble-stage{
-  position:fixed;
-  inset:0;
-  z-index:9999;
-  overflow:hidden;
-  pointer-events:none;
-  animation:bubbleStageOut 4.2s ease forwards;
+[data-testid="stAppViewContainer"]::before,
+[data-testid="stAppViewContainer"]::after{
+    content:"";
+    position:fixed;
+    z-index:999;
+    pointer-events:none;
+    left:8vw;
+    bottom:-130px;
+    width:72px;
+    height:72px;
+    border-radius:50%;
+    border:1.5px solid rgba(255,255,255,.88);
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            rgba(255,255,255,.95) 0 5%,
+            rgba(255,255,255,.35) 9%,
+            rgba(107,221,255,.18) 45%,
+            rgba(255,255,255,.08) 100%
+        );
+    box-shadow:
+        15vw 45px 0 -15px rgba(217,249,255,.35),
+        31vw -15px 0 13px rgba(214,249,255,.28),
+        48vw 55px 0 -9px rgba(219,251,255,.32),
+        64vw -5px 0 20px rgba(213,248,255,.24),
+        79vw 70px 0 -20px rgba(220,251,255,.30);
+    animation:bubblesUp 4.5s ease-out 1 forwards;
 }
 
-@keyframes bubbleStageOut{
-  0%,76%{
-    opacity:1;
-  }
-  100%{
-    opacity:0;
-    visibility:hidden;
-  }
+[data-testid="stAppViewContainer"]::after{
+    left:17vw;
+    width:42px;
+    height:42px;
+    opacity:.76;
+    animation-duration:5.1s;
+    animation-delay:.25s;
 }
 
-.bubble{
-  position:absolute;
-  bottom:-150px;
-  border-radius:50%;
-  border:1.5px solid rgba(255,255,255,.9);
-  background:
-    radial-gradient(
-      circle at 28% 23%,
-      rgba(255,255,255,.96) 0 5%,
-      rgba(255,255,255,.42) 8%,
-      rgba(110,225,255,.22) 40%,
-      rgba(53,180,226,.10) 67%,
-      rgba(255,255,255,.15) 100%
-    );
-  box-shadow:
-    inset -8px -9px 18px rgba(20,154,207,.17),
-    inset 8px 7px 14px rgba(255,255,255,.38),
-    0 9px 27px rgba(15,126,164,.13);
+@keyframes bubblesUp{
+    0%{
+        transform:translateY(0) translateX(0) scale(.75);
+        opacity:0;
+    }
+    12%{
+        opacity:.9;
+    }
+    72%{
+        opacity:.72;
+    }
+    100%{
+        transform:translateY(-115vh) translateX(48px) scale(1.12);
+        opacity:0;
+    }
 }
 
-.b1{left:5%;width:72px;height:72px;animation:rise1 3.2s ease-out .00s forwards;}
-.b2{left:19%;width:42px;height:42px;animation:rise2 3.5s ease-out .22s forwards;}
-.b3{left:31%;width:96px;height:96px;animation:rise1 3.8s ease-out .10s forwards;}
-.b4{left:47%;width:54px;height:54px;animation:rise2 3.1s ease-out .45s forwards;}
-.b5{left:61%;width:82px;height:82px;animation:rise1 3.7s ease-out .18s forwards;}
-.b6{left:75%;width:48px;height:48px;animation:rise2 3.2s ease-out .36s forwards;}
-.b7{left:88%;width:105px;height:105px;animation:rise1 3.9s ease-out .05s forwards;}
-.b8{left:40%;width:30px;height:30px;animation:rise2 2.9s ease-out .62s forwards;}
-
-@keyframes rise1{
-  0%{transform:translate(0,0) scale(.72);opacity:0;}
-  12%{opacity:.92;}
-  68%{opacity:.82;}
-  100%{transform:translate(45px,-115vh) scale(1.08);opacity:0;}
-}
-
-@keyframes rise2{
-  0%{transform:translate(0,0) scale(.62);opacity:0;}
-  12%{opacity:.88;}
-  70%{opacity:.75;}
-  100%{transform:translate(-34px,-112vh) scale(1);opacity:0;}
-}
-
-/* ------------------------------------------------------------
-   HERO
------------------------------------------------------------- */
+/* ============================================================
+   TYPOGRAPHY

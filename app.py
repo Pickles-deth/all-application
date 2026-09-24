@@ -9,7 +9,7 @@ st.set_page_config(
 )
 
 # ============================================================
-# SETTINGS
+# APP SETTINGS
 # ============================================================
 
 APPS = [
@@ -47,8 +47,8 @@ APPS = [
     },
 ]
 
-# Nuclear Volume Analyzer の完成ZIPを GitHub Releases 等に置いた後、
-# 下記を実際のURLへ変更してください。
+# Portable ZIP を GitHub Releases 等へ置いた後、
+# 実際のダウンロードURLへ変更してください。
 PORTABLE_DOWNLOAD_URL = "https://YOUR-DOWNLOAD-LINK-HERE"
 
 # ============================================================
@@ -56,18 +56,20 @@ PORTABLE_DOWNLOAD_URL = "https://YOUR-DOWNLOAD-LINK-HERE"
 # ============================================================
 
 css_path = Path(__file__).with_name("style.css")
+if not css_path.exists():
+    st.error("style.css が見つかりません。app.py と同じ階層に置いてください。")
+    st.stop()
 
-if css_path.exists():
-    css = css_path.read_text(encoding="utf-8")
-    st.markdown("<style>" + css + "</style>", unsafe_allow_html=True)
-else:
-    st.warning("style.css が見つかりません。app.py と同じフォルダに置いてください。")
+st.markdown(
+    "<style>" + css_path.read_text(encoding="utf-8") + "</style>",
+    unsafe_allow_html=True,
+)
 
 # ============================================================
 # HERO
 # ============================================================
 
-with st.container(border=True):
+with st.container(key="hero"):
     st.caption("RESEARCH SOFTWARE DESKTOP")
     st.title("Research App Launcher")
     st.write(
@@ -76,15 +78,15 @@ with st.container(border=True):
         "Nuclear Volume Analyzer をまとめています。"
     )
 
-st.subheader("Applications")
+st.markdown("## Applications")
 
 # ============================================================
-# NATIVE STREAMLIT APP CARDS
+# APP CARDS
 # ============================================================
 
-def render_app_card(app):
-    with st.container(border=True):
-        st.markdown(f"#### {app['icon']} {app['title']}")
+def app_card(app, key):
+    with st.container(key=key):
+        st.markdown(f"### {app['icon']} {app['title']}")
         st.caption(app["subtitle"])
         st.write(app["description"])
         st.link_button(
@@ -93,4 +95,48 @@ def render_app_card(app):
             use_container_width=True,
         )
 
-row1_left, row1_right = st.columns(2, gap="medium")
+left, right = st.columns(2, gap="large")
+
+with left:
+    app_card(APPS[0], "card_dotblot")
+    app_card(APPS[2], "card_qpcr")
+
+with right:
+    app_card(APPS[1], "card_dotblot_speed")
+    app_card(APPS[3], "card_trombone")
+
+# ============================================================
+# WINDOWS APP
+# ============================================================
+
+st.markdown("## Windows Application")
+
+with st.container(key="card_nuclear"):
+    st.markdown("### 💿 Nuclear Volume Analyzer")
+    st.caption("Windows Portable Edition")
+    st.write(
+        "Nuclear Volume Axial Edge AERO と "
+        "Nuclear Volume Axial Edge + DAPI – Light Aero を収録したWindows版です。"
+    )
+    st.info(
+        "Python / Anaconda / pip の知識は不要です。"
+        "ZIPを展開し、STARTファイルをダブルクリックして起動します。"
+    )
+
+    if PORTABLE_DOWNLOAD_URL.startswith("https://YOUR-"):
+        st.button(
+            "DOWNLOAD URL 未設定",
+            disabled=True,
+            use_container_width=True,
+        )
+        st.caption(
+            "PORTABLE_DOWNLOAD_URL を、完成したPortable ZIPのURLへ変更してください。"
+        )
+    else:
+        st.link_button(
+            "DOWNLOAD / INSTALL",
+            PORTABLE_DOWNLOAD_URL,
+            use_container_width=True,
+        )
+
+st.caption("Research Desktop • Frutiger Aero Edition")

@@ -1,103 +1,96 @@
-# APPLICATION CARDS
-# IMPORTANT:
-# HTML is deliberately generated without leading indentation.
-# This prevents Streamlit/Markdown from displaying it as code.
-# ============================================================
+import html
+import streamlit as st
 
-cards = []
-
-for app in APPS:
-    title = html.escape(app["title"])
-    subtitle = html.escape(app["subtitle"])
-    desc = html.escape(app["description"])
-    url = html.escape(app["url"], quote=True)
-    btn = html.escape(app["button"])
-    icon = html.escape(app["icon"])
-
-    target = (
-        ""
-        if url.startswith("#")
-        else ' target="_blank" rel="noopener noreferrer"'
-    )
-
-    card = (
-        '<div class="win-card">'
-        '<div class="win-titlebar">'
-        f'{title}'
-        '<div class="win-controls">'
-        '<div class="win-control">—</div>'
-        '<div class="win-control">□</div>'
-        '<div class="win-control close">×</div>'
-        '</div>'
-        '</div>'
-        '<div class="win-body">'
-        '<div class="app-row">'
-        f'<div class="app-icon">{icon}</div>'
-        '<div>'
-        f'<div class="app-title">{title}</div>'
-        f'<div class="app-subtitle">{subtitle}</div>'
-        f'<div class="app-desc">{desc}</div>'
-        '</div>'
-        '</div>'
-        '<div class="win-bottom">'
-        f'<a class="aero-btn" href="{url}"{target}>{btn}</a>'
-        '</div>'
-        '</div>'
-        '</div>'
-    )
-
-    cards.append(card)
-
-st.markdown(
-    '<div class="apps-grid">' + "".join(cards) + '</div>',
-    unsafe_allow_html=True,
+st.set_page_config(
+    page_title="Research App Launcher",
+    page_icon="🫧",
+    layout="wide",
+    initial_sidebar_state="collapsed",
 )
 
 # ============================================================
-# NUCLEAR VOLUME ANALYZER DOWNLOAD
+# APP SETTINGS
 # ============================================================
 
-safe_download = html.escape(PORTABLE_DOWNLOAD_URL, quote=True)
+APPS = [
+    {
+        "title": "Dot Blot 最適化ツール",
+        "subtitle": "Streamlit Application",
+        "description": "Dot blot解析・最適化用のWebアプリです。",
+        "url": "https://dot-blot-wpexuj78a34vxowmk9bdnk.streamlit.app/",
+        "button": "OPEN",
+        "icon": "🧪",
+    },
+    {
+        "title": "Dot Blot 最適化ツール",
+        "subtitle": "Speed-Up Version",
+        "description": "処理速度を改善したDot blot最適化ツールです。",
+        "url": "https://dot-blot-speed-up-ver-fxnzj3qjfjqxgtfcrmbdwc.streamlit.app/",
+        "button": "OPEN",
+        "icon": "⚡",
+    },
+    {
+        "title": "qPCR 最適化ツール",
+        "subtitle": "Streamlit Application",
+        "description": "qPCR解析・最適化用のWebアプリです。",
+        "url": "https://cfnamyopjngksph65sendu.streamlit.app/",
+        "button": "OPEN",
+        "icon": "📈",
+    },
+    {
+        "title": "トロンボーンパンチ",
+        "subtitle": "Game",
+        "description": "ブラウザで遊べるオリジナルゲームです。",
+        "url": "https://pickles-deth.github.io/trombonepumti/",
+        "button": "PLAY",
+        "icon": "🎺",
+    },
+    {
+        "title": "Nuclear Volume Analyzer",
+        "subtitle": "Windows Portable Edition",
+        "description": "Edge AERO と Light Aero Accent + DAPI を収録したWindows版です。",
+        "url": "#installer-section",
+        "button": "INSTALL",
+        "icon": "💿",
+    },
+]
 
-installer_html = (
-    '<div id="installer-section" class="installer-wrap">'
-    '<div class="installer-title">Nuclear Volume Analyzer Setup</div>'
-    '<div class="installer-content">'
-    '<div class="install-disc"></div>'
-    '<div>'
-    '<div class="install-title">Windows Portable Edition</div>'
-    '<div class="install-text">'
-    '<b>Nuclear Volume Axial Edge AERO</b> と '
-    '<b>Nuclear Volume Axial Edge + DAPI – Light Aero</b> '
-    'を収録したWindows版です。<br><br>'
-    'Python / Anaconda / pip の知識は不要です。'
-    'ZIPを展開し、STARTファイルをダブルクリックして起動します。'
-    '</div>'
-    '<div class="win-bottom" '
-    'style="justify-content:flex-start;border-top:0;padding-top:6px;">'
-    f'<a class="aero-btn" href="{safe_download}" '
-    'target="_blank" rel="noopener noreferrer">DOWNLOAD</a>'
-    '</div>'
-    '<div class="install-note">'
-    'GitHubへ公開する前に、app.py上部の '
-    '<b>PORTABLE_DOWNLOAD_URL</b> を実際の配布ZIPのURLへ変更してください。'
-    '</div>'
-    '</div>'
-    '</div>'
-    '</div>'
-)
-
-st.markdown(installer_html, unsafe_allow_html=True)
+# Replace this after uploading the portable ZIP somewhere.
+PORTABLE_DOWNLOAD_URL = "https://YOUR-DOWNLOAD-LINK-HERE"
+VERSION_TEXT = "Research Desktop v1.2"
 
 # ============================================================
-# TASKBAR
+# CSS
 # ============================================================
 
 st.markdown(
-    '<div class="fake-taskbar">'
-    '<div class="start-button">● Start</div>'
-    '<div class="task-title">Research App Launcher</div>'
-    f'<div class="task-clock">{html.escape(VERSION_TEXT)}</div>'
-    '</div>',
-    unsafe_allow_html=True,
-)
+    """
+<style>
+html { scroll-behavior: smooth; }
+
+[data-testid="stAppViewContainer"]{
+  background:
+    radial-gradient(circle at 8% 17%, rgba(255,255,255,.74) 0 4%, transparent 4.2%),
+    radial-gradient(circle at 80% 11%, rgba(255,255,255,.63) 0 5%, transparent 5.2%),
+    linear-gradient(180deg,#8fdcff 0%,#d9f7ff 37%,#73dad2 67%,#5cbb86 100%);
+  background-attachment: fixed;
+}
+
+[data-testid="stHeader"] { background: rgba(0,0,0,0); }
+#MainMenu, footer { visibility: hidden; }
+
+.block-container{
+  max-width: 1200px;
+  padding-top: 2rem;
+  padding-bottom: 7rem;
+}
+
+/* Startup bubbles */
+.bubble-stage{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  overflow: hidden;
+  pointer-events: none;
+  animation: bubbleStageOut 4.2s ease forwards;
+}

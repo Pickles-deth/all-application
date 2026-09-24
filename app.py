@@ -16,15 +16,15 @@ APPS = [
     {
         "title": "Dot Blot 最適化ツール",
         "subtitle": "Streamlit Application",
-        "description": "Dot blot解析・最適化用のWebアプリです。",
+        "description": "Dot blot解析・最適化用のWebアプリ",
         "url": "https://dot-blot-wpexuj78a34vxowmk9bdnk.streamlit.app/",
         "button": "OPEN",
         "icon": "🧪",
     },
     {
-        "title": "Dot Blot 最適化ツール",
+        "title": "Dot Blot 最適化ツール speed up ver.",
         "subtitle": "Speed-Up Version",
-        "description": "処理速度を改善したDot blot最適化ツールです。",
+        "description": "処理速度を改善したDot blot最適化ツール",
         "url": "https://dot-blot-speed-up-ver-fxnzj3qjfjqxgtfcrmbdwc.streamlit.app/",
         "button": "OPEN",
         "icon": "⚡",
@@ -32,7 +32,7 @@ APPS = [
     {
         "title": "qPCR 最適化ツール",
         "subtitle": "Streamlit Application",
-        "description": "qPCR解析・最適化用のWebアプリです。",
+        "description": "qPCR解析・最適化用のWebアプリ",
         "url": "https://cfnamyopjngksph65sendu.streamlit.app/",
         "button": "OPEN",
         "icon": "📈",
@@ -40,7 +40,7 @@ APPS = [
     {
         "title": "トロンボーンパンチ",
         "subtitle": "Game",
-        "description": "ブラウザで遊べるオリジナルゲームです。",
+        "description": "ブラウザで遊べるオリジナルゲーム",
         "url": "https://pickles-deth.github.io/trombonepumti/",
         "button": "PLAY",
         "icon": "🎺",

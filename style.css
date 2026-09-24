@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Share+Tech+Mono&display=swap');
-
 /* =========================================================
    GLOBAL
 ========================================================= */
@@ -43,6 +41,7 @@ footer{
     position:fixed;
     z-index:999;
     pointer-events:none;
+
     bottom:-120px;
     left:7vw;
 
@@ -105,62 +104,81 @@ footer{
 }
 
 /* =========================================================
-   TYPOGRAPHY
-   DIGITAL + FRUTIGER AERO
+   BASE TYPOGRAPHY
 ========================================================= */
 
-/* 通常本文 */
 [data-testid="stAppViewContainer"],
 [data-testid="stAppViewContainer"] p,
 [data-testid="stAppViewContainer"] div,
-[data-testid="stAppViewContainer"] span{
+[data-testid="stAppViewContainer"] span,
+[data-testid="stAppViewContainer"] label,
+[data-testid="stAppViewContainer"] input,
+[data-testid="stAppViewContainer"] textarea,
+[data-testid="stAppViewContainer"] select{
     font-family:
         "Segoe UI",
         "Yu Gothic UI",
         "Meiryo",
-        sans-serif !important;
+        Arial,
+        sans-serif;
 }
 
-/* Research App Launcher */
-[data-testid="stAppViewContainer"] h1{
+/* =========================================================
+   DIGITAL HEADINGS
+========================================================= */
+
+/* Main title */
+[data-testid="stAppViewContainer"] h1,
+[data-testid="stAppViewContainer"] h1 *,
+[data-testid="stAppViewContainer"] [data-testid="stHeadingWithActionElements"] h1,
+[data-testid="stAppViewContainer"] [data-testid="stHeadingWithActionElements"] h1 *{
     font-family:
+        "Courier New",
         "Cascadia Mono",
         "Consolas",
         "Lucida Console",
         monospace !important;
-
-    font-weight:700 !important;
-
-    letter-spacing:-0.05em !important;
 
     color:#073b55 !important;
 
+    font-weight:700 !important;
+
+    letter-spacing:-.045em !important;
+
     text-shadow:
-        2px 2px 0 rgba(255,255,255,.7),
-        0 0 6px rgba(28,158,213,.18);
+        0 1px 0 rgba(255,255,255,.95),
+        0 0 7px rgba(63,191,229,.14);
 }
 
-/* Applications */
-[data-testid="stAppViewContainer"] h2{
+/* Section headings */
+[data-testid="stAppViewContainer"] h2,
+[data-testid="stAppViewContainer"] h2 *,
+[data-testid="stAppViewContainer"] [data-testid="stHeadingWithActionElements"] h2,
+[data-testid="stAppViewContainer"] [data-testid="stHeadingWithActionElements"] h2 *{
     font-family:
+        "Courier New",
         "Cascadia Mono",
         "Consolas",
         "Lucida Console",
         monospace !important;
 
-    font-weight:700 !important;
-
-    letter-spacing:-0.04em !important;
-
     color:#0b4661 !important;
 
+    font-weight:700 !important;
+
+    letter-spacing:-.035em !important;
+
     text-shadow:
-        1px 1px 0 rgba(255,255,255,.85);
+        0 1px 0 rgba(255,255,255,.82);
 }
 
-/* カードタイトル */
-[data-testid="stAppViewContainer"] h3{
+/* Card headings */
+[data-testid="stAppViewContainer"] h3,
+[data-testid="stAppViewContainer"] h3 *,
+[data-testid="stAppViewContainer"] [data-testid="stHeadingWithActionElements"] h3,
+[data-testid="stAppViewContainer"] [data-testid="stHeadingWithActionElements"] h3 *{
     font-family:
+        "Courier New",
         "Cascadia Mono",
         "Consolas",
         "Lucida Console",
@@ -169,52 +187,11 @@ footer{
 
     font-weight:700 !important;
 
-    letter-spacing:-0.025em !important;
-}
-
-/* RESEARCH SOFTWARE DESKTOP */
-.st-key-hero [data-testid="stCaptionContainer"]{
-    font-family:
-        "Cascadia Mono",
-        "Consolas",
-        "Lucida Console",
-        monospace !important;
-
-    font-weight:600 !important;
-
-    letter-spacing:.08em !important;
-}
-
-/* カード内の英語Caption */
-.st-key-card_dotblot [data-testid="stCaptionContainer"],
-.st-key-card_dotblot_speed [data-testid="stCaptionContainer"],
-.st-key-card_qpcr [data-testid="stCaptionContainer"],
-.st-key-card_trombone [data-testid="stCaptionContainer"],
-.st-key-card_nuclear [data-testid="stCaptionContainer"]{
-    font-family:
-        "Cascadia Mono",
-        "Consolas",
-        "Lucida Console",
-        monospace !important;
-}
-
-/* OPEN */
-[data-testid="stLinkButton"] a,
-.stButton > button{
-    font-family:
-        "Cascadia Mono",
-        "Consolas",
-        "Lucida Console",
-        monospace !important;
-
-    font-weight:700 !important;
-
-    letter-spacing:.12em !important;
+    letter-spacing:-.02em !important;
 }
 
 /* =========================================================
    HERO
-   Streamlit key="hero" => .st-key-hero
 ========================================================= */
 
 .st-key-hero{
@@ -223,15 +200,9 @@ footer{
 
     margin-bottom:1.1rem;
 
-    padding:
-        1.5rem
-        1.7rem
-        1.45rem;
+    padding:1.5rem 1.7rem 1.45rem;
 
-    border:
-        1px
-        solid
-        rgba(255,255,255,.88);
+    border:1px solid rgba(255,255,255,.88);
 
     border-radius:22px;
 
@@ -272,8 +243,9 @@ footer{
         );
 }
 
-/* RESEARCH SOFTWARE DESKTOP badge */
-.st-key-hero [data-testid="stCaptionContainer"]{
+/* Top label */
+.st-key-hero [data-testid="stCaptionContainer"],
+.st-key-hero [data-testid="stCaptionContainer"] *{
     position:relative;
 
     z-index:1;
@@ -284,59 +256,29 @@ footer{
 
     padding:.4rem .75rem;
 
-    border:
-        1px
-        solid
-        rgba(13,124,160,.28);
+    border:1px solid rgba(13,124,160,.28);
 
     border-radius:999px;
 
-    background:
-        rgba(255,255,255,.64);
+    background:rgba(255,255,255,.64);
 
-    color:#126989;
+    color:#126989 !important;
 
     font-family:
-        "Share Tech Mono",
+        "Courier New",
         "Cascadia Mono",
         "Consolas",
-        "Segoe UI",
-        sans-serif !important;
+        monospace !important;
 
-    font-weight:400;
+    font-weight:700 !important;
 
-    font-size:.88rem;
-
-    letter-spacing:.11em;
-
-    text-shadow:
-        0 1px 0 rgba(255,255,255,.9),
-        0 0 4px rgba(74,201,240,.18);
+    letter-spacing:.10em !important;
 }
 
 .st-key-hero h1,
 .st-key-hero p{
     position:relative;
     z-index:1;
-}
-
-/* Main hero title */
-.st-key-hero h1{
-    font-family:
-        "Orbitron",
-        "Segoe UI",
-        "Yu Gothic UI",
-        sans-serif !important;
-
-    color:#073b55 !important;
-
-    font-weight:800 !important;
-
-    letter-spacing:-.025em !important;
-
-    text-shadow:
-        0 1px 0 rgba(255,255,255,.95),
-        0 0 10px rgba(62,197,237,.12);
 }
 
 /* =========================================================
@@ -356,15 +298,9 @@ footer{
 
     margin-bottom:1.25rem;
 
-    padding:
-        1rem
-        1rem
-        1.05rem;
+    padding:1rem 1rem 1.05rem;
 
-    border:
-        1px
-        solid
-        rgba(8,79,111,.60);
+    border:1px solid rgba(8,79,111,.60);
 
     border-radius:12px;
 
@@ -399,7 +335,6 @@ footer{
 
 /* =========================================================
    CARD TITLE BAR
-   Classic Windows / Digital look
 ========================================================= */
 
 .st-key-card_dotblot h3,
@@ -409,14 +344,9 @@ footer{
 .st-key-card_nuclear h3{
     box-sizing:border-box;
 
-    margin:
-        -1rem
-        -1rem
-        .9rem !important;
+    margin:-1rem -1rem .9rem !important;
 
-    padding:
-        .65rem
-        .85rem !important;
+    padding:.65rem .85rem !important;
 
     color:white !important;
 
@@ -429,31 +359,49 @@ footer{
             #08709f 100%
         );
 
-    border-bottom:
-        1px
-        solid
-        #075f89;
+    border-bottom:1px solid #075f89;
 
     font-family:
-        "Share Tech Mono",
+        "Courier New",
         "Cascadia Mono",
         "Consolas",
+        "Lucida Console",
         "Yu Gothic UI",
-        "Meiryo",
-        sans-serif !important;
+        monospace !important;
 
     font-size:1rem !important;
 
     font-weight:700 !important;
 
-    letter-spacing:.035em !important;
+    letter-spacing:-.02em !important;
 
     text-shadow:
         0 1px 1px rgba(0,51,77,.75),
-        0 0 5px rgba(123,231,255,.30);
+        0 0 5px rgba(123,231,255,.28);
 }
 
-/* Fake classic window controls on right side */
+/* Force inner heading span too */
+.st-key-card_dotblot h3 *,
+.st-key-card_dotblot_speed h3 *,
+.st-key-card_qpcr h3 *,
+.st-key-card_trombone h3 *,
+.st-key-card_nuclear h3 *{
+    font-family:
+        "Courier New",
+        "Cascadia Mono",
+        "Consolas",
+        "Lucida Console",
+        "Yu Gothic UI",
+        monospace !important;
+
+    color:white !important;
+
+    font-weight:700 !important;
+
+    letter-spacing:-.02em !important;
+}
+
+/* Fake Windows buttons */
 .st-key-card_dotblot::before,
 .st-key-card_dotblot_speed::before,
 .st-key-card_qpcr::before,
@@ -473,51 +421,38 @@ footer{
     font:
         700
         12px/1
-        "Share Tech Mono",
+        "Courier New",
         "Cascadia Mono",
         "Consolas",
-        "Segoe UI",
-        sans-serif;
+        monospace;
 
     letter-spacing:.18rem;
 
     text-shadow:
-        0 1px 1px rgba(0,50,75,.75),
-        0 0 4px rgba(255,255,255,.22);
+        0 1px 1px rgba(0,50,75,.75);
 }
 
 /* =========================================================
-   CARD TEXT
+   CARD SUBTITLE
 ========================================================= */
 
-.st-key-card_dotblot p,
-.st-key-card_dotblot_speed p,
-.st-key-card_qpcr p,
-.st-key-card_trombone p,
-.st-key-card_nuclear p{
-    font-family:
-        "Segoe UI",
-        "Yu Gothic UI",
-        "Meiryo",
-        sans-serif !important;
-
-    letter-spacing:.008em;
-}
-
-/* Caption / sub-label inside cards */
 .st-key-card_dotblot [data-testid="stCaptionContainer"],
 .st-key-card_dotblot_speed [data-testid="stCaptionContainer"],
 .st-key-card_qpcr [data-testid="stCaptionContainer"],
 .st-key-card_trombone [data-testid="stCaptionContainer"],
-.st-key-card_nuclear [data-testid="stCaptionContainer"]{
+.st-key-card_nuclear [data-testid="stCaptionContainer"],
+.st-key-card_dotblot [data-testid="stCaptionContainer"] *,
+.st-key-card_dotblot_speed [data-testid="stCaptionContainer"] *,
+.st-key-card_qpcr [data-testid="stCaptionContainer"] *,
+.st-key-card_trombone [data-testid="stCaptionContainer"] *,
+.st-key-card_nuclear [data-testid="stCaptionContainer"] *{
     font-family:
-        "Share Tech Mono",
+        "Courier New",
         "Cascadia Mono",
         "Consolas",
-        "Yu Gothic UI",
-        sans-serif !important;
+        monospace !important;
 
-    letter-spacing:.035em;
+    letter-spacing:.035em !important;
 }
 
 /* =========================================================
@@ -525,13 +460,12 @@ footer{
 ========================================================= */
 
 [data-testid="stLinkButton"] a,
-.stButton > button{
+[data-testid="stLinkButton"] a *,
+.stButton > button,
+.stButton > button *{
     min-height:42px !important;
 
-    border:
-        1px
-        solid
-        #176985 !important;
+    border:1px solid #176985 !important;
 
     border-radius:8px !important;
 
@@ -551,21 +485,19 @@ footer{
     color:#063a50 !important;
 
     font-family:
-        "Share Tech Mono",
+        "Courier New",
         "Cascadia Mono",
         "Consolas",
-        "Segoe UI",
-        sans-serif !important;
+        monospace !important;
 
     font-size:.84rem !important;
 
     font-weight:700 !important;
 
-    letter-spacing:.085em;
+    letter-spacing:.10em !important;
 
     text-shadow:
-        0 1px 0 rgba(255,255,255,.8),
-        0 0 3px rgba(111,226,255,.16);
+        0 1px 0 rgba(255,255,255,.8);
 
     transition:
         transform .15s ease,
@@ -583,60 +515,36 @@ footer{
 
 .stButton > button:active{
     transform:translateY(1px);
-
-    filter:brightness(.98);
 }
 
 .stButton > button:disabled{
     opacity:.62 !important;
-
     transform:none !important;
 }
 
 /* =========================================================
-   INFO / ALERT / CAPTION
+   INFO / CAPTION
 ========================================================= */
 
 [data-testid="stAlert"]{
-    border:
-        1px
-        solid
-        rgba(57,156,191,.35) !important;
+    border:1px solid rgba(57,156,191,.35) !important;
 
     border-radius:9px !important;
 
-    background:
-        rgba(235,250,255,.76) !important;
+    background:rgba(235,250,255,.76) !important;
 }
 
-/* Generic captions */
+/* =========================================================
+   GENERAL CAPTION
+========================================================= */
+
 [data-testid="stCaptionContainer"]{
-    color:rgba(38,68,80,.68);
+    color:rgba(38,68,80,.72);
 }
 
 /* =========================================================
-   LINKS
+   CARD TOP HIGHLIGHT
 ========================================================= */
-
-a{
-    transition:
-        opacity .15s ease,
-        filter .15s ease;
-}
-
-a:hover{
-    filter:brightness(1.08);
-}
-
-/* =========================================================
-   OPTIONAL DIGITAL DETAILS
-   Subtle only - no functional change
-========================================================= */
-
-/*
-   Tiny glass/highlight line at the top of cards.
-   見た目だけの変更です。
-*/
 
 .st-key-card_dotblot::after,
 .st-key-card_dotblot_speed::after,
@@ -659,7 +567,7 @@ a:hover{
         linear-gradient(
             90deg,
             transparent,
-            rgba(255,255,255,.75),
+            rgba(255,255,255,.78),
             transparent
         );
 }
@@ -689,14 +597,11 @@ a:hover{
     }
 
     .st-key-hero{
-        padding:
-            1.25rem
-            1.15rem
-            1.2rem;
+        padding:1.25rem 1.15rem 1.2rem;
     }
 
     .st-key-hero [data-testid="stCaptionContainer"]{
         font-size:.76rem;
-        letter-spacing:.075em;
+        letter-spacing:.075em !important;
     }
 }

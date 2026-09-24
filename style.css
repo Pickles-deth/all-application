@@ -1,7 +1,6 @@
-
-/* ============================================================
-   STREAMLIT BASE
-   ============================================================ */
+/* =========================================================
+   GLOBAL
+========================================================= */
 
 html{
     scroll-behavior:smooth;
@@ -11,14 +10,14 @@ html{
     position:relative;
     overflow-x:hidden;
     background:
-        radial-gradient(circle at 8% 14%,rgba(255,255,255,.72) 0 4%,transparent 4.2%),
-        radial-gradient(circle at 82% 10%,rgba(255,255,255,.62) 0 5%,transparent 5.2%),
-        linear-gradient(180deg,#8fdcff 0%,#dff8ff 35%,#7ddfd6 66%,#61bc87 100%);
+        radial-gradient(circle at 8% 12%,rgba(255,255,255,.70) 0 4.2%,transparent 4.4%),
+        radial-gradient(circle at 82% 9%,rgba(255,255,255,.62) 0 5.2%,transparent 5.4%),
+        linear-gradient(180deg,#8edcff 0%,#ddf8ff 34%,#7dded5 65%,#5dbb84 100%);
     background-attachment:fixed;
 }
 
 [data-testid="stHeader"]{
-    background:rgba(255,255,255,.08);
+    background:rgba(255,255,255,.06);
 }
 
 #MainMenu,
@@ -28,14 +27,13 @@ footer{
 
 .block-container{
     max-width:1180px;
-    padding-top:2.1rem;
+    padding-top:2rem;
     padding-bottom:5rem;
 }
 
-/* ============================================================
+/* =========================================================
    STARTUP BUBBLES - CSS ONLY
-   No custom HTML needed
-   ============================================================ */
+========================================================= */
 
 [data-testid="stAppViewContainer"]::before,
 [data-testid="stAppViewContainer"]::after{
@@ -43,54 +41,296 @@ footer{
     position:fixed;
     z-index:999;
     pointer-events:none;
-    left:8vw;
-    bottom:-130px;
-    width:72px;
-    height:72px;
+    bottom:-120px;
+    left:7vw;
+    width:68px;
+    height:68px;
     border-radius:50%;
     border:1.5px solid rgba(255,255,255,.88);
     background:
         radial-gradient(
-            circle at 30% 25%,
-            rgba(255,255,255,.95) 0 5%,
-            rgba(255,255,255,.35) 9%,
-            rgba(107,221,255,.18) 45%,
+            circle at 29% 24%,
+            rgba(255,255,255,.96) 0 5%,
+            rgba(255,255,255,.36) 9%,
+            rgba(106,220,255,.20) 43%,
             rgba(255,255,255,.08) 100%
         );
     box-shadow:
-        15vw 45px 0 -15px rgba(217,249,255,.35),
-        31vw -15px 0 13px rgba(214,249,255,.28),
-        48vw 55px 0 -9px rgba(219,251,255,.32),
-        64vw -5px 0 20px rgba(213,248,255,.24),
-        79vw 70px 0 -20px rgba(220,251,255,.30);
-    animation:bubblesUp 4.5s ease-out 1 forwards;
+        16vw 44px 0 -14px rgba(232,252,255,.36),
+        32vw -15px 0 12px rgba(225,251,255,.28),
+        49vw 58px 0 -8px rgba(225,251,255,.31),
+        65vw -7px 0 18px rgba(222,250,255,.26),
+        80vw 73px 0 -19px rgba(227,251,255,.30);
+    animation:bubbleRise 4.6s ease-out 1 forwards;
 }
 
 [data-testid="stAppViewContainer"]::after{
     left:17vw;
-    width:42px;
-    height:42px;
-    opacity:.76;
+    width:38px;
+    height:38px;
+    opacity:.73;
     animation-duration:5.1s;
-    animation-delay:.25s;
+    animation-delay:.2s;
 }
 
-@keyframes bubblesUp{
+@keyframes bubbleRise{
     0%{
-        transform:translateY(0) translateX(0) scale(.75);
+        transform:translate(0,0) scale(.72);
         opacity:0;
     }
-    12%{
+    10%{
         opacity:.9;
     }
-    72%{
+    70%{
         opacity:.72;
     }
     100%{
-        transform:translateY(-115vh) translateX(48px) scale(1.12);
+        transform:translate(45px,-118vh) scale(1.12);
         opacity:0;
     }
 }
 
-/* ============================================================
+/* =========================================================
    TYPOGRAPHY
+========================================================= */
+
+h1,
+h2,
+h3{
+    font-family:"Segoe UI",Arial,sans-serif !important;
+}
+
+h1{
+    color:#073b55 !important;
+    font-weight:800 !important;
+    letter-spacing:-.04em !important;
+    text-shadow:0 1px 0 rgba(255,255,255,.95);
+}
+
+h2{
+    color:#0b4661 !important;
+    font-weight:800 !important;
+    text-shadow:0 1px 0 rgba(255,255,255,.8);
+}
+
+p{
+    font-family:"Segoe UI",Arial,sans-serif !important;
+}
+
+/* =========================================================
+   HERO
+   Streamlit key="hero" => .st-key-hero
+========================================================= */
+
+.st-key-hero{
+    position:relative;
+    overflow:hidden;
+    margin-bottom:1.1rem;
+    padding:1.5rem 1.7rem 1.45rem;
+    border:1px solid rgba(255,255,255,.88);
+    border-radius:22px;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.78),
+            rgba(220,249,255,.60)
+        );
+    box-shadow:
+        inset 0 1px 0 white,
+        0 18px 42px rgba(10,74,94,.18),
+        0 0 0 1px rgba(26,143,178,.23);
+}
+
+.st-key-hero::after{
+    content:"";
+    position:absolute;
+    pointer-events:none;
+    width:250px;
+    height:250px;
+    right:-90px;
+    top:-145px;
+    border-radius:50%;
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.95),
+            rgba(83,219,249,.11) 57%,
+            transparent 71%
+        );
+}
+
+.st-key-hero [data-testid="stCaptionContainer"]{
+    position:relative;
+    z-index:1;
+    display:inline-block;
+    width:auto;
+    padding:.4rem .75rem;
+    border:1px solid rgba(13,124,160,.28);
+    border-radius:999px;
+    background:rgba(255,255,255,.64);
+    color:#126989;
+    font-weight:700;
+    letter-spacing:.08em;
+}
+
+.st-key-hero h1,
+.st-key-hero p{
+    position:relative;
+    z-index:1;
+}
+
+/* =========================================================
+   APP CARDS
+========================================================= */
+
+.st-key-card_dotblot,
+.st-key-card_dotblot_speed,
+.st-key-card_qpcr,
+.st-key-card_trombone,
+.st-key-card_nuclear{
+    position:relative;
+    overflow:hidden;
+    box-sizing:border-box;
+    margin-bottom:1.25rem;
+    padding:1rem 1rem 1.05rem;
+    border:1px solid rgba(8,79,111,.60);
+    border-radius:12px;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.96),
+            rgba(225,246,251,.88)
+        );
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.96),
+        0 12px 27px rgba(3,70,93,.17);
+    transition:
+        transform .18s ease,
+        box-shadow .18s ease;
+}
+
+.st-key-card_dotblot:hover,
+.st-key-card_dotblot_speed:hover,
+.st-key-card_qpcr:hover,
+.st-key-card_trombone:hover,
+.st-key-card_nuclear:hover{
+    transform:translateY(-3px);
+    box-shadow:
+        inset 0 1px 0 white,
+        0 18px 36px rgba(3,70,93,.23),
+        0 0 0 2px rgba(75,213,245,.17);
+}
+
+/* Classic Windows title-bar look on card headings */
+.st-key-card_dotblot h3,
+.st-key-card_dotblot_speed h3,
+.st-key-card_qpcr h3,
+.st-key-card_trombone h3,
+.st-key-card_nuclear h3{
+    box-sizing:border-box;
+    margin:-1rem -1rem .9rem !important;
+    padding:.65rem .85rem !important;
+    color:white !important;
+    background:
+        linear-gradient(
+            180deg,
+            #61d7f6 0%,
+            #27acd6 43%,
+            #0c86b5 49%,
+            #08709f 100%
+        );
+    border-bottom:1px solid #075f89;
+    text-shadow:0 1px 1px rgba(0,51,77,.75);
+    font-size:1rem !important;
+    font-weight:700 !important;
+}
+
+/* Fake classic window controls on right side */
+.st-key-card_dotblot::before,
+.st-key-card_dotblot_speed::before,
+.st-key-card_qpcr::before,
+.st-key-card_trombone::before,
+.st-key-card_nuclear::before{
+    content:"—   □   ×";
+    position:absolute;
+    z-index:5;
+    right:.65rem;
+    top:.62rem;
+    color:white;
+    font:700 12px/1 "Segoe UI",Arial,sans-serif;
+    letter-spacing:.18rem;
+    text-shadow:0 1px 1px rgba(0,50,75,.75);
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+[data-testid="stLinkButton"] a,
+.stButton > button{
+    min-height:42px !important;
+    border:1px solid #176985 !important;
+    border-radius:8px !important;
+    background:
+        linear-gradient(
+            180deg,
+            #f8ffff 0%,
+            #bcf3fb 39%,
+            #46c4e4 49%,
+            #218fb5 100%
+        ) !important;
+    box-shadow:
+        inset 0 1px 0 white,
+        0 2px 5px rgba(0,70,99,.17) !important;
+    color:#063a50 !important;
+    font-family:"Segoe UI",Arial,sans-serif !important;
+    font-size:.82rem !important;
+    font-weight:800 !important;
+    letter-spacing:.045em;
+    text-shadow:0 1px 0 rgba(255,255,255,.8);
+    transition:
+        transform .15s ease,
+        filter .15s ease;
+}
+
+[data-testid="stLinkButton"] a:hover,
+.stButton > button:hover{
+    filter:brightness(1.06);
+    transform:translateY(-1px);
+    border-color:#0c90ba !important;
+}
+
+.stButton > button:disabled{
+    opacity:.62 !important;
+    transform:none !important;
+}
+
+/* =========================================================
+   INFO / CAPTION
+========================================================= */
+
+[data-testid="stAlert"]{
+    border:1px solid rgba(57,156,191,.35) !important;
+    border-radius:9px !important;
+    background:rgba(235,250,255,.76) !important;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:760px){
+    .block-container{
+        padding-left:.75rem;
+        padding-right:.75rem;
+    }
+
+    h1{
+        font-size:2rem !important;
+    }
+
+    [data-testid="column"]{
+        width:100% !important;
+        flex:1 1 100% !important;
+    }
+}

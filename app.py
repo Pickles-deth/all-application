@@ -1,3 +1,4 @@
+from pathlib import Path
 import html
 import streamlit as st
 
@@ -7,10 +8,6 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="collapsed",
 )
-
-# ============================================================
-# APP SETTINGS
-# ============================================================
 
 APPS = [
     {
@@ -55,42 +52,45 @@ APPS = [
     },
 ]
 
-# Replace this after uploading the portable ZIP somewhere.
+# 完成したPortable ZIPをGitHub Releases等に置いた後、
+# 実際のダウンロードURLへ変更してください。
 PORTABLE_DOWNLOAD_URL = "https://YOUR-DOWNLOAD-LINK-HERE"
-VERSION_TEXT = "Research Desktop v1.2"
+VERSION_TEXT = "Research Desktop v1.3"
 
-# ============================================================
-# CSS
-# ============================================================
+css_path = Path(__file__).with_name("style.css")
+css = css_path.read_text(encoding="utf-8")
+st.markdown("<style>" + css + "</style>", unsafe_allow_html=True)
 
-st.markdown(
-    """
-<style>
-html { scroll-behavior: smooth; }
+bubble_html = (
+    '<div class="bubble-stage">'
+    '<div class="bubble b1"></div>'
+    '<div class="bubble b2"></div>'
+    '<div class="bubble b3"></div>'
+    '<div class="bubble b4"></div>'
+    '<div class="bubble b5"></div>'
+    '<div class="bubble b6"></div>'
+    '<div class="bubble b7"></div>'
+    '<div class="bubble b8"></div>'
+    '</div>'
+)
+st.markdown(bubble_html, unsafe_allow_html=True)
 
-[data-testid="stAppViewContainer"]{
-  background:
-    radial-gradient(circle at 8% 17%, rgba(255,255,255,.74) 0 4%, transparent 4.2%),
-    radial-gradient(circle at 80% 11%, rgba(255,255,255,.63) 0 5%, transparent 5.2%),
-    linear-gradient(180deg,#8fdcff 0%,#d9f7ff 37%,#73dad2 67%,#5cbb86 100%);
-  background-attachment: fixed;
-}
+hero_html = (
+    '<div class="aero-hero">'
+    '<div class="hero-kicker">RESEARCH SOFTWARE DESKTOP</div>'
+    '<h1>Research App Launcher</h1>'
+    '<p>研究・解析・ゲーム用に作成したアプリを、'
+    'ひとつのデスクトップから起動するためのポータルです。'
+    'Webアプリ4種と、Windows用 Nuclear Volume Analyzer をまとめています。</p>'
+    '</div>'
+    '<div class="section-label">Applications</div>'
+)
+st.markdown(hero_html, unsafe_allow_html=True)
 
-[data-testid="stHeader"] { background: rgba(0,0,0,0); }
-#MainMenu, footer { visibility: hidden; }
+cards = []
 
-.block-container{
-  max-width: 1200px;
-  padding-top: 2rem;
-  padding-bottom: 7rem;
-}
-
-/* Startup bubbles */
-.bubble-stage{
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  overflow: hidden;
-  pointer-events: none;
-  animation: bubbleStageOut 4.2s ease forwards;
-}
+for app_item in APPS:
+    title = html.escape(app_item["title"])
+    subtitle = html.escape(app_item["subtitle"])
+    desc = html.escape(app_item["description"])
+    url = html.escape(app_item["url"], quote=True)

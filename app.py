@@ -115,8 +115,8 @@ with st.container(key="card_nuclear"):
     st.markdown("### 💿 Nuclear Volume Analyzer")
     st.caption("Windows Portable Edition")
     st.write(
-        "Nuclear Volume Axial Edge AERO と "
-        "Nuclear Volume Axial Edge + DAPI – Light Aero を収録したWindows版です。"
+        "Nuclear Volume Axial Edge と "
+        "Nuclear Volume Axial Edge + DAPI CV を収録したWindows版です。"
     )
     st.info(
         "Python / Anaconda / pip の知識は不要です。"

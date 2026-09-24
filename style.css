@@ -109,85 +109,107 @@ footer{
    DIGITAL + FRUTIGER AERO
 ========================================================= */
 
-/*
-   基本文字は読みやすさを維持。
-   英数字の見出しだけ Orbitron / Share Tech Mono で
-   少しデジタル・2000年代PC風にしています。
-*/
-
-body,
-p,
-div,
-span,
-label,
-input,
-textarea,
-select{
+/* 通常本文 */
+[data-testid="stAppViewContainer"],
+[data-testid="stAppViewContainer"] p,
+[data-testid="stAppViewContainer"] div,
+[data-testid="stAppViewContainer"] span{
     font-family:
-        "Segoe UI",
-        "Yu Gothic UI",
-        "Meiryo",
-        sans-serif;
-}
-
-/* Main digital headings */
-h1,
-h2{
-    font-family:
-        "Orbitron",
         "Segoe UI",
         "Yu Gothic UI",
         "Meiryo",
         sans-serif !important;
+}
+
+/* Research App Launcher */
+[data-testid="stAppViewContainer"] h1{
+    font-family:
+        "Cascadia Mono",
+        "Consolas",
+        "Lucida Console",
+        monospace !important;
+
+    font-weight:700 !important;
+
+    letter-spacing:-0.05em !important;
 
     color:#073b55 !important;
 
-    font-weight:700 !important;
-
-    letter-spacing:.015em !important;
-
     text-shadow:
-        0 1px 0 rgba(255,255,255,.95),
-        0 0 8px rgba(73,199,239,.12);
+        2px 2px 0 rgba(255,255,255,.7),
+        0 0 6px rgba(28,158,213,.18);
 }
 
-h1{
-    font-size:2.55rem !important;
-    font-weight:800 !important;
-    letter-spacing:-.015em !important;
-}
-
-h2{
-    color:#0b4661 !important;
-    font-weight:700 !important;
-}
-
-/*
-   h3 はカードのタイトルバーで使用。
-   英数字は Share Tech Mono で
-   ソフトウェアウィンドウっぽい印象に。
-*/
-h3{
+/* Applications */
+[data-testid="stAppViewContainer"] h2{
     font-family:
-        "Share Tech Mono",
         "Cascadia Mono",
         "Consolas",
-        "Yu Gothic UI",
-        "Meiryo",
-        sans-serif !important;
+        "Lucida Console",
+        monospace !important;
 
-    letter-spacing:.025em !important;
+    font-weight:700 !important;
+
+    letter-spacing:-0.04em !important;
+
+    color:#0b4661 !important;
+
+    text-shadow:
+        1px 1px 0 rgba(255,255,255,.85);
 }
 
-/* Normal text */
-p{
+/* カードタイトル */
+[data-testid="stAppViewContainer"] h3{
     font-family:
-        "Segoe UI",
+        "Cascadia Mono",
+        "Consolas",
+        "Lucida Console",
         "Yu Gothic UI",
-        "Meiryo",
-        sans-serif !important;
+        monospace !important;
 
-    letter-spacing:.01em;
+    font-weight:700 !important;
+
+    letter-spacing:-0.025em !important;
+}
+
+/* RESEARCH SOFTWARE DESKTOP */
+.st-key-hero [data-testid="stCaptionContainer"]{
+    font-family:
+        "Cascadia Mono",
+        "Consolas",
+        "Lucida Console",
+        monospace !important;
+
+    font-weight:600 !important;
+
+    letter-spacing:.08em !important;
+}
+
+/* カード内の英語Caption */
+.st-key-card_dotblot [data-testid="stCaptionContainer"],
+.st-key-card_dotblot_speed [data-testid="stCaptionContainer"],
+.st-key-card_qpcr [data-testid="stCaptionContainer"],
+.st-key-card_trombone [data-testid="stCaptionContainer"],
+.st-key-card_nuclear [data-testid="stCaptionContainer"]{
+    font-family:
+        "Cascadia Mono",
+        "Consolas",
+        "Lucida Console",
+        monospace !important;
+}
+
+/* OPEN */
+[data-testid="stLinkButton"] a,
+.stButton > button{
+    font-family:
+        "Cascadia Mono",
+        "Consolas",
+        "Lucida Console",
+        monospace !important;
+
+    font-weight:700 !important;
+
+    letter-spacing:.12em !important;
 }
 
 /* =========================================================

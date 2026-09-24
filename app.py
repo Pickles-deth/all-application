@@ -1,5 +1,4 @@
 from pathlib import Path
-import html
 import streamlit as st
 
 st.set_page_config(
@@ -10,7 +9,7 @@ st.set_page_config(
 )
 
 # ============================================================
-# APPLICATION SETTINGS
+# SETTINGS
 # ============================================================
 
 APPS = [
@@ -46,51 +45,52 @@ APPS = [
         "button": "PLAY",
         "icon": "🎺",
     },
-    {
-        "title": "Nuclear Volume Analyzer",
-        "subtitle": "Windows Portable Edition",
-        "description": "Edge AERO と Light Aero Accent + DAPI を収録したWindows版です。",
-        "url": "#installer-section",
-        "button": "INSTALL",
-        "icon": "💿",
-    },
 ]
 
-# 完成したPortable ZIPをGitHub Releases等に置いた後、
-# 実際のダウンロードURLへ変更してください。
+# Nuclear Volume Analyzer の完成ZIPを GitHub Releases 等に置いた後、
+# 下記を実際のURLへ変更してください。
 PORTABLE_DOWNLOAD_URL = "https://YOUR-DOWNLOAD-LINK-HERE"
 
-VERSION_TEXT = "Research Desktop v1.5"
-
 # ============================================================
-# LOAD CSS
+# CSS
 # ============================================================
 
 css_path = Path(__file__).with_name("style.css")
 
-if not css_path.exists():
-    st.error("style.css が見つかりません。app.py と同じGitHubフォルダに置いてください。")
-    st.stop()
-
-css = css_path.read_text(encoding="utf-8")
-st.html("<style>" + css + "</style>")
-
-# ============================================================
-# STARTUP BUBBLES
-# ============================================================
-
-bubble_html = (
-    '<div class="bubble-stage" aria-hidden="true">'
-    '<div class="bubble b1"></div>'
-    '<div class="bubble b2"></div>'
-    '<div class="bubble b3"></div>'
-    '<div class="bubble b4"></div>'
-    '<div class="bubble b5"></div>'
-    '<div class="bubble b6"></div>'
-    '<div class="bubble b7"></div>'
-    '<div class="bubble b8"></div>'
-    '</div>'
-)
-st.html(bubble_html)
+if css_path.exists():
+    css = css_path.read_text(encoding="utf-8")
+    st.markdown("<style>" + css + "</style>", unsafe_allow_html=True)
+else:
+    st.warning("style.css が見つかりません。app.py と同じフォルダに置いてください。")
 
 # ============================================================
+# HERO
+# ============================================================
+
+with st.container(border=True):
+    st.caption("RESEARCH SOFTWARE DESKTOP")
+    st.title("Research App Launcher")
+    st.write(
+        "研究・解析・ゲーム用に作成したアプリを、ひとつのデスクトップから"
+        "起動するためのポータルです。Webアプリ4種と、Windows用 "
+        "Nuclear Volume Analyzer をまとめています。"
+    )
+
+st.subheader("Applications")
+
+# ============================================================
+# NATIVE STREAMLIT APP CARDS
+# ============================================================
+
+def render_app_card(app):
+    with st.container(border=True):
+        st.markdown(f"#### {app['icon']} {app['title']}")
+        st.caption(app["subtitle"])
+        st.write(app["description"])
+        st.link_button(
+            app["button"],
+            app["url"],
+            use_container_width=True,
+        )
+
+row1_left, row1_right = st.columns(2, gap="medium")

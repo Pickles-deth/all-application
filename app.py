@@ -159,8 +159,8 @@ with st.container(key="card_nuclear"):
     st.caption("Windows Portable Edition")
 
     st.write(
-        "Nuclear Volume Axial Edge AERO と "
-        "Nuclear Volume Axial Edge + DAPI – Light Aero を収録したWindows版です。"
+        "Nuclear Volume Axial Edge と "
+        "Nuclear Volume Axial Edge + DAPI CVを収録したWindows版です。"
     )
 
     st.info(

@@ -164,7 +164,9 @@ with st.container(key="card_nuclear"):
     )
 
     st.info(
-        "Python / Anaconda / pip の知識は不要です。"
+        "ZIPは 短いパスに展開してください。
+        深いフォルダ階層や長いフォルダ名では、
+一部ファイルが正常に展開されない場合があります。"
         "ZIPを展開し、STARTファイルをダブルクリックして起動します。"
     )
 

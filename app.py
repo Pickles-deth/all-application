@@ -50,7 +50,7 @@ APPS = [
 
 # Portable ZIP を GitHub Releases 等へ置いた後、
 # 実際のダウンロードURLへ変更してください。
-PORTABLE_DOWNLOAD_URL = "https://github.com/Pickles-deth/all-application/releases/download/v1.0/Nuclear_Volume_Analyzer_Portable_v1.0_RELEASE.zip"
+PORTABLE_DOWNLOAD_URL = "https://drive.google.com/file/d/1Fuq4SquczuRZbsWZHwgOTHFIa_VVOAu-/view?usp=sharing"
 
 
 # ============================================================

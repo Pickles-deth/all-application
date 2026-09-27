@@ -50,7 +50,7 @@ APPS = [
 
 # Portable ZIP を GitHub Releases 等へ置いた後、
 # 実際のダウンロードURLへ変更してください。
-PORTABLE_DOWNLOAD_URL = "https://drive.google.com/file/d/1Fuq4SquczuRZbsWZHwgOTHFIa_VVOAu-/view?usp=sharing"
+PORTABLE_DOWNLOAD_URL = "https://drive.google.com/file/d/1OjoTuhQuu_2VtKxVZPhWTRtCHGubSWue/view?usp=sharing"
 
 
 # ============================================================

@@ -25,7 +25,7 @@ APPS = [
     {
         "title": "Dot Blot 最適化ツール speed up ver.",
         "subtitle": "Speed-Up Version",
-        "description": "処理速度を改善したDot blot最適化ツール",
+        "description": "処理速度を改善したDot blot最適化ツール(n=5以上推奨）",
         "url": "https://dot-blot-speed-up-ver-fxnzj3qjfjqxgtfcrmbdwc.streamlit.app/",
         "button": "OPEN",
         "icon": "⚡",

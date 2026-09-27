@@ -39,9 +39,9 @@ APPS = [
         "icon": "📈",
     },
     {
-        "title": "トロンボーンパンチ",
+        "title": "GAME",
         "subtitle": "Game",
-        "description": "ブラウザで遊べるオリジナルゲーム",
+        "description": "オリジナルゲーム",
         "url": "https://pickles-deth.github.io/trombonepumti/",
         "button": "PLAY",
         "icon": "🎺",
